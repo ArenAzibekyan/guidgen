@@ -13,7 +13,7 @@ import (
 func main() {
 	app := &cli.App{
 		Usage:           "A command line UUID generator",
-		Version:         "1.0.0",
+		Version:         "1.0.1",
 		Flags:           config.Flags,
 		HideHelpCommand: true,
 		Action: func(ctx *cli.Context) error {
