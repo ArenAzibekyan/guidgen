@@ -53,7 +53,8 @@ func TestGenerate(t *testing.T) {
 		c := c
 		t.Run(c.name, func(t *testing.T) {
 			reg := regexp.MustCompile(c.reg)
-			res := Generate(c.quantity, c.hex, c.uppercase)
+			res, err := Generate(c.quantity, c.hex, c.uppercase)
+			require.NoError(t, err)
 			require.Len(t, res, int(c.quantity))
 			for _, s := range res {
 				require.True(t, reg.MatchString(s))

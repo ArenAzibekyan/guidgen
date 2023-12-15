@@ -7,23 +7,34 @@ import (
 	"github.com/google/uuid"
 )
 
-func Generate(quantity uint, hex, uppercase bool) []string {
-	res := make([]string, 0, quantity)
+func Generate(quantity uint, hex, uppercase bool) ([]string, error) {
+	res := make([]string, quantity)
 	for i := uint(0); i < quantity; i++ {
-		res = append(res, generate(hex, uppercase))
+		s, err := generate(hex, uppercase)
+		if err != nil {
+			return nil, err
+		}
+		res[i] = s
 	}
-	return res
+	return res, nil
 }
 
-func generate(hex, uppercase bool) string {
+func generate(hex, uppercase bool) (string, error) {
+	id, err := uuid.NewRandom()
+	if err != nil {
+		return "", err
+	}
+
 	var s string
-	if id := uuid.New(); hex {
+	if hex {
 		s = encHex.EncodeToString(id[:])
 	} else {
 		s = id.String()
 	}
+
 	if uppercase {
 		s = strings.ToUpper(s)
 	}
-	return s
+
+	return s, nil
 }

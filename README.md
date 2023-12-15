@@ -1,9 +1,9 @@
 # guidgen
-A command line UUID generator written in Go
+A command line UUID/GUID generator written in Go
 
 ### Install
 ```
-go install github.com/ArenAzibekyan/guidgen/cmd/guidgen@latest
+go install github.com/ArenAzibekyan/guidgen/v2/cmd/guidgen@latest
 ```
 
 ### Flags
