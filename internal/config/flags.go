@@ -8,7 +8,7 @@ var Flags = []cli.Flag{
 		Aliases:     []string{"q"},
 		EnvVars:     []string{"GUIDGEN_QUANTITY"},
 		Usage:       "set uuids quantity",
-		Value:       1,
+		Value:       conf.Quantity,
 		Destination: &conf.Quantity,
 	},
 	&cli.BoolFlag{
@@ -16,7 +16,7 @@ var Flags = []cli.Flag{
 		Aliases:     []string{"x"},
 		EnvVars:     []string{"GUIDGEN_HEX"},
 		Usage:       "print in hex format",
-		Value:       false,
+		Value:       conf.Hex,
 		Destination: &conf.Hex,
 	},
 	&cli.BoolFlag{
@@ -24,7 +24,7 @@ var Flags = []cli.Flag{
 		Aliases:     []string{"u"},
 		EnvVars:     []string{"GUIDGEN_UPPERCASE"},
 		Usage:       "transform to uppercase",
-		Value:       false,
+		Value:       conf.Uppercase,
 		Destination: &conf.Uppercase,
 	},
 }
